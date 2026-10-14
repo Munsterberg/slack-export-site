@@ -68,7 +68,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.125rem, 5.6vw, 4.75rem);
+  font-size: clamp(2rem, 5.6vw, 4.75rem);
 }
 
 h2 {
@@ -1113,7 +1113,7 @@ html:not(.js) .export-btn {
   }
 
   .log td:nth-child(2)::before {
-    content: "To ";
+    content: "To " / "";
     font-weight: 400;
   }
 }
