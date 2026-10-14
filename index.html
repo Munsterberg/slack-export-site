@@ -3,17 +3,137 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Slack Export for Members - save Slack conversations to your computer</title>
-  <meta name="description" content="A Chrome extension that saves any Slack channel, DM, or thread you can already see as Markdown, CSV, HTML, or PDF. No admin rights. Nobody else gets a copy.">
-  <meta name="referrer" content="no-referrer">
+  <title>Channel Export: export Slack channels, DMs, and threads without admin access</title>
+  <meta name="description" content="Export any Slack channel, DM, or thread you can already see to Markdown, CSV, HTML, or PDF. A Chrome extension that needs no admin rights and never sends your messages to a server.">
+  <link rel="canonical" href="https://channelexport.app/">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#2335d8">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Slack Export for Members">
-  <meta property="og:description" content="Save any Slack conversation you can see to your computer. No admin rights. Nobody else gets a copy.">
+  <meta property="og:site_name" content="Channel Export">
+  <meta property="og:url" content="https://channelexport.app/">
+  <meta property="og:title" content="Channel Export: save any Slack conversation to your computer">
+  <meta property="og:description" content="Export Slack channels, DMs, and threads to Markdown, CSV, HTML, or PDF. No admin rights. Nobody else gets a copy.">
+  <meta property="og:image" content="https://channelexport.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Channel Export: save any Slack conversation to your computer. Nobody else gets a copy.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="demo.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://channelexport.app/#website",
+      "url": "https://channelexport.app/",
+      "name": "Channel Export",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://channelexport.app/#app",
+      "name": "Channel Export",
+      "url": "https://channelexport.app/",
+      "description": "A Chrome extension that exports any Slack channel, DM, group DM, or thread you can already see to Markdown, CSV, HTML, or PDF, without admin rights. Messages never leave your browser.",
+      "applicationCategory": "BrowserApplication",
+      "applicationSubCategory": "Productivity",
+      "operatingSystem": "Chrome",
+      "featureList": [
+        "Export Slack channels, DMs, group DMs, and threads",
+        "Markdown and CSV export for free",
+        "HTML and PDF export with images",
+        "No admin rights required",
+        "Runs entirely in your browser"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full export",
+          "price": "7",
+          "priceCurrency": "USD",
+          "description": "One-time payment for HTML, PDF, saved files, and bulk export"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://channelexport.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I export a Slack channel without admin access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Slack's built-in export is only for workspace owners and admins. Channel Export works for regular members instead. Add the extension to Chrome, open the channel at app.slack.com, and click Export in the channel header. Pick a format and date range, and the file saves to your computer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export DMs, group DMs, and private channels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export Slack messages to PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose PDF in the export dialog. PDF and HTML are part of the $7 full export, and they include images, avatars, and custom emoji. The PDF has real, searchable text. For very long channels, HTML is the better choice. Markdown and CSV are free for any conversation, with no limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I use the Slack desktop app. Will this work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not inside the desktop app, because Chrome extensions only run in Chrome. You don't have to switch for good, though. Open app.slack.com in Chrome, sign in to the same workspace, and export from there. The desktop app keeps working as normal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do my messages go?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only to your computer. The extension asks Slack for the messages through your own browser session, builds the file in your browser, and saves it to your Downloads folder. We have no server that receives message content. The extension sends a few anonymous usage events, like \"an export finished, as Markdown\". They never include messages, names, channel names, or workspace names, and you can turn them off in settings. The privacy policy lists every event."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this allowed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The extension only reads conversations you can already open in Slack. It uses your normal sign-in, doesn't get around any permission, and can't post, edit, or delete anything. It saves what you could otherwise copy by hand. Your workspace may still have rules about keeping copies of messages, especially at work. Check your employer's or client's policy before you export, particularly for conversations that include other people. This extension is not made by, affiliated with, or endorsed by Slack."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is $7 a subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It's a single payment that unlocks HTML, PDF, saved files, and exporting several conversations at once."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -22,7 +142,7 @@
       <div class="wrap">
         <a class="brand" href="./">
           <img src="favicon.svg" width="30" height="30" alt="">
-          Slack Export for Members
+          Channel Export
         </a>
         <nav class="site-nav" aria-label="Main">
           <a class="nav-optional" href="#privacy">Privacy</a>
@@ -38,8 +158,8 @@
           <h1>Save any Slack conversation to your computer. Nobody else gets a copy.</h1>
           <div class="hero-row">
             <p class="lede">
-              A Chrome extension for the channels, DMs, and threads you can already see.
-              No admin rights and no Slack app to install. Your browser does the whole export.
+              Export the channels, DMs, and threads you can already see to Markdown, CSV, HTML, or PDF.
+              A Chrome extension with no admin rights and no Slack app to install. Your browser does the whole export.
             </p>
             <div class="hero-actions">
               <!-- CHROME_WEB_STORE_URL: replace every href="#install" with the store listing URL -->
@@ -144,7 +264,7 @@ Approved. Shipping it 🎉
             <p>
               There's no server of ours in the middle. Here is everything that happens when you export a channel, and who sees what.
             </p>
-            <p><a href="privacy.html">Read the privacy policy</a></p>
+            <p><a href="privacy">Read the privacy policy</a></p>
           </div>
           <div class="log-wrap">
             <table class="log">
@@ -271,6 +391,29 @@ Approved. Shipping it 🎉
           </div>
           <div class="faq">
             <details>
+              <summary>How do I export a Slack channel without admin access?</summary>
+              <div class="answer">
+                <p>Slack's built-in export is only for workspace owners and admins. Channel Export works for regular members instead.</p>
+                <p>Add the extension to Chrome, open the channel at app.slack.com, and click Export in the channel header. Pick a format and date range, and the file saves to your computer.</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Can I export DMs, group DMs, and private channels?</summary>
+              <div class="answer">
+                <p>Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads.</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>How do I export Slack messages to PDF?</summary>
+              <div class="answer">
+                <p>Choose PDF in the export dialog. PDF and HTML are part of the $7 full export, and they include images, avatars, and custom emoji. The PDF has real, searchable text. For very long channels, HTML is the better choice.</p>
+                <p>Markdown and CSV are free for any conversation, with no limits.</p>
+              </div>
+            </details>
+
+            <details>
               <summary>I use the Slack desktop app. Will this work?</summary>
               <div class="answer">
                 <p>Not inside the desktop app, because Chrome extensions only run in Chrome. You don't have to switch for good, though.</p>
@@ -282,7 +425,7 @@ Approved. Shipping it 🎉
               <summary>Where do my messages go?</summary>
               <div class="answer">
                 <p>Only to your computer. The extension asks Slack for the messages through your own browser session, builds the file in your browser, and saves it to your Downloads folder. We have no server that receives message content.</p>
-                <p>The extension sends a few anonymous usage events, like "an export finished, as Markdown". They never include messages, names, channel names, or workspace names, and you can turn them off in settings. The <a href="privacy.html">privacy policy</a> lists every event.</p>
+                <p>The extension sends a few anonymous usage events, like "an export finished, as Markdown". They never include messages, names, channel names, or workspace names, and you can turn them off in settings. The <a href="privacy">privacy policy</a> lists every event.</p>
               </div>
             </details>
 
@@ -317,7 +460,7 @@ Approved. Shipping it 🎉
     <div class="wrap">
       <p>Not affiliated with or endorsed by Slack Technologies.</p>
       <nav aria-label="Footer">
-        <a href="privacy.html">Privacy policy</a>
+        <a href="privacy">Privacy policy</a>
         <a href="#install" data-cws-link>Chrome Web Store</a>
       </nav>
     </div>
