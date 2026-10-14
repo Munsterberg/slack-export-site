@@ -1,6 +1,14 @@
 # Landing site
 
-Static, no build step, no third-party requests. Deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main` that touches `site/`.
+Static, no build step, no third-party requests. Published from the public repo `Munsterberg/slack-export-site` (GitHub Pages, branch `main`, root), which contains only this folder. This repo stays private.
+
+Publish changes:
+
+```sh
+git subtree push --prefix site site main
+```
+
+(`site` is the git remote for `git@github.com:Munsterberg/slack-export-site.git`.)
 
 Preview locally:
 
