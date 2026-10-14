@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slack Export for Members - export Slack conversations without sending them anywhere</title>
+  <meta name="description" content="A Chrome extension that exports any Slack channel, DM, or thread you can already see to Markdown or CSV. No admin rights. Your messages never leave your browser.">
+  <meta name="referrer" content="no-referrer">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Slack Export for Members">
+  <meta property="og:description" content="Export any Slack channel, DM, or thread you can already see. No admin rights. Your messages never leave your browser.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <img src="favicon.svg" width="28" height="28" alt="">
+        Slack Export for Members
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <h1>Export your Slack conversations without sending them anywhere.</h1>
+          <p class="lede">
+            Save any channel, DM, group DM, or thread you can already see as Markdown or CSV.
+            No admin rights, no Slack app to install. The export runs in your browser and the file lands in your Downloads folder.
+          </p>
+          <div class="hero-actions">
+            <!-- CHROME_WEB_STORE_URL: replace every href="#install" with the store listing URL -->
+            <a class="button" href="#install" data-cws-link>Add to Chrome, free</a>
+            <span class="hero-note">Works in Slack in Chrome, at app.slack.com</span>
+          </div>
+          <ul class="facts">
+            <li>No server ever receives your messages</li>
+            <li>Read-only: it can't post, edit, or delete anything</li>
+            <li>Free formats have no limits and need no account</li>
+          </ul>
+        </div>
+
+        <figure class="file" aria-label="Example of an exported Markdown file">
+          <div class="file-tab">
+            <span class="file-name">slack-acme-design-review-2026-10-14.md</span>
+            <span class="file-size">48 KB</span>
+          </div>
+<pre class="file-body" aria-hidden="true"><span class="md-h" style="--i:0"># #design-review</span><span class="md-meta" style="--i:1">Workspace: Acme Co</span><span class="md-meta" style="--i:2">Exported: 2026-10-14, 1,284 messages</span><span class="md-rule" style="--i:3">---</span><span style="--i:4">&#8203;</span><span class="md-h" style="--i:5">**Priya Shah**, 2026-09-02 10:14</span><span style="--i:6">Final logo files are in the drive. Can someone check the dark variant before Friday?</span><span style="--i:7">&#8203;</span><span class="md-quote" style="--i:8">&gt; **Marcus Lee**, 10:21</span><span class="md-quote" style="--i:9">&gt; Looks right. Wordmark spacing is fixed too.</span><span style="--i:10">&#8203;</span><span class="md-h" style="--i:11">**Dana Ortiz**, 2026-09-02 11:03</span><span style="--i:12">Approved. Shipping it :tada:</span></pre>
+          <figcaption class="file-caption">An export of a real channel looks like this. Thread replies sit under the message they answer.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="shots-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="shots-title">It lives inside Slack</h2>
+          <p>An Export button appears in the channel header and the thread panel. You can also pick conversations from the extension popup.</p>
+        </div>
+
+        <!--
+          SCREENSHOTS: replace each placeholder div with
+          <div class="shot-frame"><img src="assets/screenshots/NAME.png" alt="..." width="1280" height="800" loading="lazy"></div>
+          Chrome Web Store screenshots are 1280x800, so the same images work here.
+        -->
+        <div class="shots">
+          <figure class="shot shot-main">
+            <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: Export button in a Slack channel header">Screenshot: Export button in the channel header</div>
+            <figcaption>The Export button, right next to the channel name.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: export options dialog">Screenshot: export dialog</div>
+            <figcaption>Pick a format and date range.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: Markdown output">Screenshot: Markdown output</div>
+            <figcaption>Markdown, readable anywhere.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: PDF output">Screenshot: PDF output</div>
+            <figcaption>PDF with images inline.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: contents of a full export ZIP">Screenshot: ZIP contents</div>
+            <figcaption>Files and images saved alongside.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="how-title">How an export works</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Open Slack in Chrome</h3>
+            <p>Go to app.slack.com and sign in the way you normally do. The extension uses that session.</p>
+          </li>
+          <li>
+            <h3>Click Export</h3>
+            <p>Use the button in the channel header or thread panel, or choose conversations in the popup.</p>
+          </li>
+          <li>
+            <h3>Choose what to keep</h3>
+            <p>Pick a format and a date range: all time, the last 30 days, or your own dates.</p>
+          </li>
+          <li>
+            <h3>Get the file</h3>
+            <p>Your browser fetches the messages from Slack and saves the file to your computer.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="pricing-title">Free for text. $7 once for everything else.</h2>
+          <p>The free version is not a trial. It has no message limits and needs no account.</p>
+        </div>
+
+        <div class="pricing">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col"><span class="visually-hidden">Feature</span></th>
+                <th scope="col">
+                  <span class="tier-name">Free</span>
+                  <span class="tier-price">$0</span>
+                </th>
+                <th scope="col" class="paid-col">
+                  <span class="tier-name">Full export</span>
+                  <span class="tier-price">$7<small>one time</small></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Channels, DMs, group DMs, and threads</th>
+                <td><span class="yes">Included</span></td>
+                <td class="paid-col"><span class="yes">Included</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Markdown and CSV</th>
+                <td><span class="yes">Included</span></td>
+                <td class="paid-col"><span class="yes">Included</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Date range and thread replies</th>
+                <td><span class="yes">Included</span></td>
+                <td class="paid-col"><span class="yes">Included</span></td>
+              </tr>
+              <tr>
+                <th scope="row">HTML and PDF</th>
+                <td><span class="no">Not included</span></td>
+                <td class="paid-col"><span class="yes">Included</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Files and images</th>
+                <td>Linked to Slack</td>
+                <td class="paid-col"><span class="yes">Saved in a ZIP</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Images, avatars, and custom emoji shown in the export</th>
+                <td><span class="no">Not included</span></td>
+                <td class="paid-col"><span class="yes">Included</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Export several conversations at once</th>
+                <td><span class="no">One at a time</span></td>
+                <td class="paid-col"><span class="yes">Included</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">
+          You pay once inside the extension. No subscription. Payment is handled by ExtensionPay and Stripe, so we never see your card details.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="faq-title">Questions</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>I use the Slack desktop app. Will this work?</summary>
+            <div class="answer">
+              <p>Not inside the desktop app, because Chrome extensions only run in Chrome. You don't need to switch for good, though.</p>
+              <p>Open <a href="https://app.slack.com">app.slack.com</a> in Chrome, sign in to the same workspace, and export from there. The desktop app keeps working as normal.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Where do my messages go?</summary>
+            <div class="answer">
+              <p>Only to your computer. The extension asks Slack for the messages through your own browser session, builds the file in your browser, and saves it to your Downloads folder. We have no server that receives message content.</p>
+              <p>The extension sends a few anonymous usage events, such as "an export finished" and which format was used, so we can tell what's working. These never include messages, names, channel names, or workspace names, and you can turn them off in settings. The <a href="privacy.html">privacy policy</a> lists every event.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Is this allowed?</summary>
+            <div class="answer">
+              <p>The extension only reads conversations you can already open in Slack. It uses your normal sign-in, doesn't get around any permission, and can't post, edit, or delete anything. It saves what you could otherwise copy by hand.</p>
+              <p>Your workspace may still have rules about keeping copies of messages, especially at work. Check your employer's or client's policy before you export, particularly for conversations that include other people.</p>
+              <p>This extension is not made by, affiliated with, or endorsed by Slack.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Is $7 a subscription?</summary>
+            <div class="answer">
+              <p>No. It's a single payment that unlocks HTML, PDF, downloaded files, and exporting several conversations at once, on any Chrome profile where you sign in to ExtensionPay with the same email.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <h2 id="install-title">Keep a copy of the conversations that matter to you.</h2>
+        <a class="button" href="#install" data-cws-link>Add to Chrome, free</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Not affiliated with or endorsed by Slack Technologies.</p>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="#install" data-cws-link>Chrome Web Store</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

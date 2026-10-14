@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy - Slack Export for Members</title>
+  <meta name="description" content="What the Slack Export for Members Chrome extension does and does not collect.">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <img src="favicon.svg" width="28" height="28" alt="">
+        Slack Export for Members
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="./#pricing">Pricing</a>
+        <a href="./#faq">FAQ</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc">
+    <h1>Privacy policy</h1>
+    <p class="updated">Last updated October 14, 2026</p>
+
+    <div class="summary">
+      <strong>The short version</strong>
+      <ul>
+        <li>Your Slack messages, files, and sign-in token stay in your browser. We have no server that receives them.</li>
+        <li>The extension only reads from Slack. It can't post, edit, or delete anything.</li>
+        <li>We collect a few anonymous usage events, and you can turn them off.</li>
+      </ul>
+    </div>
+
+    <h2>What the extension does</h2>
+    <p>
+      Slack Export for Members is a Chrome extension that exports Slack conversations you already have access to
+      (channels, direct messages, group messages, and threads) into files on your computer.
+      It works with the Slack session you are already signed in to at <code>app.slack.com</code>.
+    </p>
+
+    <h2>Your Slack data</h2>
+    <p>
+      When you start an export, the extension requests messages, replies, user profiles, and custom emoji from Slack's API,
+      directly from your browser to Slack. It builds the export file in your browser and saves it with Chrome's download feature.
+    </p>
+    <ul>
+      <li>Message content, file contents, channel names, people's names, and workspace details are never sent to us or to any third party.</li>
+      <li>The extension uses read-only Slack API methods. It contains no code that posts, edits, reacts to, or deletes anything in Slack.</li>
+      <li>Exported files are saved only to your computer. We don't keep a copy.</li>
+    </ul>
+
+    <h2>Your Slack sign-in token</h2>
+    <p>
+      To make requests on your behalf, the extension reads the session token from the Slack page you have open.
+      The token never leaves your browser and is only sent to Slack itself.
+      It is kept in Chrome's session storage while an export runs, so an interrupted export can resume,
+      and Chrome clears it when you close the browser. It is never written to long-term storage.
+    </p>
+
+    <h2>Anonymous usage analytics</h2>
+    <p>
+      To learn whether exports work and which features people use, the extension sends anonymous events to PostHog, our analytics provider:
+    </p>
+    <ul>
+      <li><code>install</code>: the extension was installed</li>
+      <li><code>export_started</code>, <code>export_completed</code>: an export began or finished</li>
+      <li><code>export_failed</code>: an export failed, with a general reason such as "rate limited" or "signed out"</li>
+      <li>The export format, and the size of the export in broad buckets (for example "1,000 to 10,000 messages")</li>
+      <li><code>paid_unlock</code>: the paid version was unlocked</li>
+    </ul>
+    <p>
+      These events never contain message content, file names, channel or conversation names, people's names,
+      Slack user, channel, or workspace IDs, or workspace domains.
+      Like any web request, they reach PostHog with your IP address. PostHog is configured to discard it rather than store it.
+      You can turn analytics off at any time under Settings in the extension popup, and no further events are sent.
+    </p>
+
+    <h2>Payments</h2>
+    <p>
+      The paid version is a one-time purchase processed by <a href="https://extensionpay.com">ExtensionPay</a> using Stripe.
+      When you buy, ExtensionPay and Stripe receive the details you enter at checkout, such as your email address and card,
+      under their own privacy policies. We never see your full card details.
+      The extension stores only whether you have paid, in Chrome's local storage, so it doesn't need to check every time.
+      The free formats never check payment status.
+    </p>
+
+    <h2>Permissions the extension asks for</h2>
+    <ul>
+      <li><strong>Access to <code>slack.com</code> and <code>slack-edge.com</code>:</strong> to add the Export button and to fetch messages, files, avatars, and emoji from Slack. The extension can't read any other site.</li>
+      <li><strong>Downloads:</strong> to save the export file to your computer.</li>
+      <li><strong>Storage:</strong> to remember your settings, the paid status, and the progress of a running export.</li>
+      <li><strong>Offscreen document:</strong> to build PDFs and ZIP files in the background without opening a tab.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The extension is not directed at children under 13, and we don't knowingly collect information from them.</p>
+
+    <h2>Not affiliated with Slack</h2>
+    <p>This extension is an independent project. It is not made by, affiliated with, or endorsed by Slack Technologies.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If this policy changes, we'll update this page and the date at the top.
+      If a change would send any new kind of data off your device, we'll ask for your consent in the extension first.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      <!-- CONTACT_EMAIL: replace both occurrences below -->
+      Questions about privacy: <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Not affiliated with or endorsed by Slack Technologies.</p>
+      <nav aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="./#install" data-cws-link>Chrome Web Store</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
