@@ -1,6 +1,6 @@
 # Landing site
 
-Static, no build step, no third-party requests. Published from the public repo `Munsterberg/slack-export-site` (GitHub Pages, branch `main`, root), which contains only this folder. This repo stays private.
+Static, no build step, no third-party requests. Fonts (Archivo, JetBrains Mono, both SIL OFL) are self-hosted in `assets/fonts/`. The hero demo lives in `demo.js`. Published from the public repo `Munsterberg/slack-export-site` (GitHub Pages, branch `main`, root), which contains only this folder. This repo stays private.
 
 Publish changes:
 

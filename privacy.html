@@ -7,6 +7,8 @@
   <meta name="description" content="What the Slack Export for Members Chrome extension does and does not collect.">
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#2335d8">
+  <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,23 +17,28 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="./">
-        <img src="favicon.svg" width="28" height="28" alt="">
+        <img src="favicon.svg" width="30" height="30" alt="">
         Slack Export for Members
       </a>
       <nav class="site-nav" aria-label="Main">
-        <a class="nav-optional" href="./#pricing">Pricing</a>
+        <a class="nav-optional" href="privacy.html" aria-current="page">Privacy</a>
+        <a href="./#pricing">Pricing</a>
         <a href="./#faq">FAQ</a>
-        <a href="privacy.html" aria-current="page">Privacy</a>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="doc">
-    <h1>Privacy policy</h1>
-    <p class="updated">Last updated October 14, 2026</p>
+  <main id="main">
+  <div class="doc-hero">
+    <div class="wrap">
+      <h1>Privacy policy</h1>
+      <p class="updated">Last updated October 14, 2026</p>
+    </div>
+  </div>
 
+  <article class="doc">
     <div class="summary">
-      <strong>The short version</strong>
+      <h2>The short version</h2>
       <ul>
         <li>Your Slack messages, files, and sign-in token stay in your browser. We have no server that receives them.</li>
         <li>The extension only reads from Slack. It can't post, edit, or delete anything.</li>
@@ -117,6 +124,7 @@
       <!-- CONTACT_EMAIL: replace both occurrences below -->
       Questions about privacy: <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>
     </p>
+  </article>
   </main>
 
   <footer class="site-footer">
