@@ -64,10 +64,11 @@ h3 {
   line-height: 1.02;
   letter-spacing: -0.025em;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5.6vw, 4.75rem);
+  font-size: clamp(2.125rem, 5.6vw, 4.75rem);
 }
 
 h2 {
@@ -247,6 +248,20 @@ a:hover {
 }
 
 /* Demo */
+
+.demo-label {
+  margin-bottom: 0.85rem;
+  color: #c3c9ff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-stretch: 100%;
+  letter-spacing: 0;
+}
+
+html:not(.js) .formats,
+html:not(.js) .export-btn {
+  visibility: hidden;
+}
 
 .demo-section {
   margin-top: clamp(-9rem, -14vw, -7rem);
@@ -479,6 +494,10 @@ a:hover {
   flex: 1;
   overflow: auto;
   transition: opacity 160ms ease;
+}
+
+.file-body:focus-visible {
+  outline-offset: -3px;
 }
 
 .file.is-busy .file-body {
@@ -1064,7 +1083,12 @@ a:hover {
   }
 
   .log thead {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .log tr {

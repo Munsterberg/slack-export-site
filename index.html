@@ -11,12 +11,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Channel Export">
   <meta property="og:url" content="https://channelexport.app/">
-  <meta property="og:title" content="Channel Export: save any Slack conversation to your computer">
+  <meta property="og:title" content="Channel Export: save Slack conversations to your computer">
   <meta property="og:description" content="Export Slack channels, DMs, and threads to Markdown, CSV, HTML, or PDF. No admin rights. Nobody else gets a copy.">
   <meta property="og:image" content="https://channelexport.app/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Channel Export: save any Slack conversation to your computer. Nobody else gets a copy.">
+  <meta property="og:image:alt" content="Channel Export: save Slack conversations to your computer. Nobody else gets a copy.">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -25,6 +25,7 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
   <script src="demo.js" defer></script>
   <script type="application/ld+json">
 {
@@ -86,7 +87,7 @@
           "name": "Can I export DMs, group DMs, and private channels?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads."
+            "text": "Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads. Export a direct message with the Export button in the conversation itself. Channels, private channels, and group DMs can also be picked from the extension popup."
           }
         },
         {
@@ -94,7 +95,15 @@
           "name": "How do I export Slack messages to PDF?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Choose PDF in the export dialog. PDF and HTML are part of the $7 full export, and they include images, avatars, and custom emoji. The PDF has real, searchable text. For very long channels, HTML is the better choice. Markdown and CSV are free for any conversation, with no limits."
+            "text": "Choose PDF in the export dialog. PDF and HTML are part of the $7 Full export, and they include images, avatars, and custom emoji. The PDF has real, searchable text. For very long channels, HTML is the better choice. Markdown and CSV are free for any conversation, with no limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export messages older than 90 days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get the same history Slack shows you. On paid Slack plans that's usually everything. On free Slack plans, Slack only shows the last 90 days, so the extension can't reach older messages either."
           }
         },
         {
@@ -102,7 +111,7 @@
           "name": "I use the Slack desktop app. Will this work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not inside the desktop app, because Chrome extensions only run in Chrome. You don't have to switch for good, though. Open app.slack.com in Chrome, sign in to the same workspace, and export from there. The desktop app keeps working as normal."
+            "text": "Not inside the desktop app, because browser extensions only run in a web browser. You don't have to switch for good, though. Open app.slack.com in Chrome, sign in to the same workspace, and export from there. The desktop app keeps working as normal."
           }
         },
         {
@@ -118,7 +127,7 @@
           "name": "Is this allowed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The extension only reads conversations you can already open in Slack. It uses your normal sign-in, doesn't get around any permission, and can't post, edit, or delete anything. It saves what you could otherwise copy by hand. Your workspace may still have rules about keeping copies of messages, especially at work. Check your employer's or client's policy before you export, particularly for conversations that include other people. This extension is not made by, affiliated with, or endorsed by Slack."
+            "text": "The extension only reads conversations you can already open in Slack. It uses your normal sign-in, doesn't get around any permission, and can't post, edit, or delete anything. It saves what you could otherwise copy by hand. Your workspace may still have rules about keeping copies of messages, especially at work. Check your employer's or client's policy before you export, particularly for conversations that include other people. This extension is not made by, affiliated with, or endorsed by Slack Technologies, LLC."
           }
         },
         {
@@ -145,7 +154,7 @@
           Channel Export
         </a>
         <nav class="site-nav" aria-label="Main">
-          <a class="nav-optional" href="#privacy">Privacy</a>
+          <a class="nav-optional" href="privacy">Privacy</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
         </nav>
@@ -155,14 +164,14 @@
     <main id="main">
       <section class="hero">
         <div class="wrap">
-          <h1>Save any Slack conversation to your computer. Nobody else gets a copy.</h1>
+          <h1>Save Slack conversations to your computer. Nobody else gets a copy.</h1>
           <div class="hero-row">
             <p class="lede">
               Export the channels, DMs, and threads you can already see to Markdown, CSV, HTML, or PDF.
-              A Chrome extension with no admin rights and no Slack app to install. Your browser does the whole export.
+              A Chrome extension that needs no admin rights and no Slack app install. Your browser does the whole export.
             </p>
             <div class="hero-actions">
-              <!-- CHROME_WEB_STORE_URL: replace every href="#install" with the store listing URL -->
+              <!-- CHROME_WEB_STORE_URL: set the href of every data-cws-link (index.html and privacy.html) to the store listing URL -->
               <a class="button button-manila" href="#install" data-cws-link>Add to Chrome, free</a>
               <span class="hero-note">For Slack in Chrome, at app.slack.com</span>
             </div>
@@ -172,7 +181,7 @@
 
       <section class="demo-section" aria-labelledby="demo-title">
         <div class="wrap">
-          <h2 id="demo-title" class="visually-hidden">Try an export</h2>
+          <h2 id="demo-title" class="demo-label">Try it on an example channel</h2>
           <div class="demo" data-demo>
             <div class="chat">
               <div class="chat-head">
@@ -214,7 +223,7 @@
                   </div>
                 </li>
               </ol>
-              <p class="chat-foot">Read-only. The extension can't post, edit, or delete anything here.</p>
+              <p class="chat-foot">Read-only. The extension never posts, edits, or deletes anything.</p>
             </div>
 
             <div class="output">
@@ -229,7 +238,7 @@
                   <span class="file-name" data-file-name aria-live="polite">slack-northwind-q3-launch-2026-10-14.md</span>
                   <span class="progress" data-progress aria-hidden="true"></span>
                 </div>
-                <div class="file-body" data-file-body>
+                <div class="file-body" data-file-body tabindex="0" role="region" aria-label="Export preview">
 <pre class="as-text"><b># #q3-launch</b>
 <i>Workspace: Northwind</i>
 <i>Exported: 2026-10-14</i>
@@ -260,15 +269,15 @@ Approved. Shipping it 🎉
       <section class="section" id="privacy" aria-labelledby="privacy-title">
         <div class="wrap split">
           <div class="split-head">
-            <h2 id="privacy-title">Every request an export makes</h2>
+            <h2 id="privacy-title">Everywhere an export sends data</h2>
             <p>
-              There's no server of ours in the middle. Here is everything that happens when you export a channel, and who sees what.
+              There's no server of ours in the middle. This is the complete list of places an export talks to, and what each one gets.
             </p>
             <p><a href="privacy">Read the privacy policy</a></p>
           </div>
           <div class="log-wrap">
             <table class="log">
-              <thead>
+              <thead class="log-head">
                 <tr>
                   <th scope="col">What happens</th>
                   <th scope="col">Goes to</th>
@@ -277,19 +286,19 @@ Approved. Shipping it 🎉
               </thead>
               <tbody>
                 <tr>
-                  <td><code>conversations.history</code></td>
+                  <td><code>conversations.history</code>, <code>conversations.replies</code></td>
                   <td>Slack</td>
-                  <td>Your sign-in, asking for the messages</td>
+                  <td>Your sign-in, asking for the messages and thread replies</td>
                 </tr>
                 <tr>
-                  <td><code>conversations.replies</code></td>
+                  <td><code>conversations.info</code>, <code>users.info</code>, <code>users.list</code>, <code>team.info</code>, <code>emoji.list</code></td>
                   <td>Slack</td>
-                  <td>Your sign-in, asking for thread replies</td>
+                  <td>Your sign-in, asking for channel details, names, and emoji</td>
                 </tr>
                 <tr>
-                  <td><code>users.info</code>, <code>emoji.list</code></td>
+                  <td>File, image, and avatar downloads</td>
                   <td>Slack</td>
-                  <td>Your sign-in, asking for names and emoji</td>
+                  <td>Your sign-in, fetching attachments. Full export only.</td>
                 </tr>
                 <tr class="log-local">
                   <td>Build and save the file</td>
@@ -297,14 +306,14 @@ Approved. Shipping it 🎉
                   <td>The export. This never leaves your computer.</td>
                 </tr>
                 <tr>
-                  <td><code>export_completed</code></td>
+                  <td><code>export_started</code>, then <code>export_completed</code> or <code>export_failed</code></td>
                   <td>PostHog</td>
-                  <td><code>{ format: "md", messages: "1k-10k" }</code>, and nothing else. You can turn this off.</td>
+                  <td><code>{ format: "md", messages: "1k-10k" }</code>, a random install ID, and version info. You can turn this off.</td>
                 </tr>
                 <tr>
                   <td>License check</td>
                   <td>ExtensionPay</td>
-                  <td>Whether you've paid. Only for HTML and PDF.</td>
+                  <td>A random install ID, to see whether you've paid. Full export features only.</td>
                 </tr>
               </tbody>
             </table>
@@ -315,7 +324,7 @@ Approved. Shipping it 🎉
       <section class="section section-tight" aria-labelledby="shots-title">
         <div class="wrap">
           <h2 id="shots-title">Inside your Slack</h2>
-          <p class="section-lede">The Export button sits in the channel header and the thread panel. The extension popup can export several conversations at once.</p>
+          <p class="section-lede">The Export button sits in the channel header and the thread panel. With Full export, the extension popup can export several conversations at once.</p>
 
           <!--
             SCREENSHOTS: replace each placeholder div with
@@ -340,7 +349,7 @@ Approved. Shipping it 🎉
               <figcaption>PDF with images inline</figcaption>
             </figure>
             <figure class="shot">
-              <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: contents of a full export ZIP">Screenshot: ZIP contents</div>
+              <div class="shot-frame is-placeholder" role="img" aria-label="Screenshot coming soon: contents of a Full export ZIP">Screenshot: ZIP contents</div>
               <figcaption>Files saved alongside</figcaption>
             </figure>
           </div>
@@ -402,21 +411,29 @@ Approved. Shipping it 🎉
               <summary>Can I export DMs, group DMs, and private channels?</summary>
               <div class="answer">
                 <p>Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads.</p>
+                <p>Export a direct message with the Export button in the conversation itself. Channels, private channels, and group DMs can also be picked from the extension popup.</p>
               </div>
             </details>
 
             <details>
               <summary>How do I export Slack messages to PDF?</summary>
               <div class="answer">
-                <p>Choose PDF in the export dialog. PDF and HTML are part of the $7 full export, and they include images, avatars, and custom emoji. The PDF has real, searchable text. For very long channels, HTML is the better choice.</p>
+                <p>Choose PDF in the export dialog. PDF and HTML are part of the $7 Full export, and they include images, avatars, and custom emoji. The PDF has real, searchable text. For very long channels, HTML is the better choice.</p>
                 <p>Markdown and CSV are free for any conversation, with no limits.</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Can I export messages older than 90 days?</summary>
+              <div class="answer">
+                <p>You get the same history Slack shows you. On paid Slack plans that's usually everything. On free Slack plans, Slack only shows the last 90 days, so the extension can't reach older messages either.</p>
               </div>
             </details>
 
             <details>
               <summary>I use the Slack desktop app. Will this work?</summary>
               <div class="answer">
-                <p>Not inside the desktop app, because Chrome extensions only run in Chrome. You don't have to switch for good, though.</p>
+                <p>Not inside the desktop app, because browser extensions only run in a web browser. You don't have to switch for good, though.</p>
                 <p>Open <a href="https://app.slack.com">app.slack.com</a> in Chrome, sign in to the same workspace, and export from there. The desktop app keeps working as normal.</p>
               </div>
             </details>
@@ -434,7 +451,7 @@ Approved. Shipping it 🎉
               <div class="answer">
                 <p>The extension only reads conversations you can already open in Slack. It uses your normal sign-in, doesn't get around any permission, and can't post, edit, or delete anything. It saves what you could otherwise copy by hand.</p>
                 <p>Your workspace may still have rules about keeping copies of messages, especially at work. Check your employer's or client's policy before you export, particularly for conversations that include other people.</p>
-                <p>This extension is not made by, affiliated with, or endorsed by Slack.</p>
+                <p>This extension is not made by, affiliated with, or endorsed by Slack Technologies, LLC.</p>
               </div>
             </details>
 
@@ -458,7 +475,7 @@ Approved. Shipping it 🎉
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Not affiliated with or endorsed by Slack Technologies.</p>
+      <p>Not affiliated with or endorsed by Slack Technologies, LLC. Slack is a trademark of Slack Technologies, LLC.</p>
       <nav aria-label="Footer">
         <a href="privacy">Privacy policy</a>
         <a href="#install" data-cws-link>Chrome Web Store</a>

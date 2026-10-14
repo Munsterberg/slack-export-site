@@ -37,7 +37,7 @@ Approved. Shipping it 🎉
     <h3># q3-launch</h3>
     <p>Northwind, exported 2026-10-14</p>
   </header>
-  <p class="day">Tuesday, September 2, 2026</p>
+  <p class="day">Wednesday, September 2, 2026</p>
   <div class="msg">
     <span class="avatar" style="--c:#6b46c1">PS</span>
     <div>
