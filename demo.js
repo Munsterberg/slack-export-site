@@ -32,82 +32,9 @@ Approved. Shipping it 🎉
 2026-09-02,10:58,Marcus Lee,"I'll post the announcement Monday morning.",,,
 2026-09-02,11:03,Dana Ortiz,"Approved. Shipping it 🎉",,,🎉 3</pre>`;
 
-  const html = `<article class="as-html">
-  <header>
-    <h3># q3-launch</h3>
-    <p>Northwind, exported 2026-10-14</p>
-  </header>
-  <p class="day">Wednesday, September 2, 2026</p>
-  <div class="msg">
-    <span class="avatar" style="--c:#6b46c1">PS</span>
-    <div>
-      <p class="msg-meta"><b>Priya Shah</b> <time>10:14</time></p>
-      <p>Final logo files are in the drive. Can someone check the dark variant before Friday?</p>
-      <div class="image" role="img" aria-label="northwind-logo-dark.png">N</div>
-      <div class="reply msg">
-        <span class="avatar" style="--c:#0f7a5f">ML</span>
-        <div>
-          <p class="msg-meta"><b>Marcus Lee</b> <time>10:21</time></p>
-          <p>Looks right. The wordmark spacing is fixed too.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="msg">
-    <span class="avatar" style="--c:#0f7a5f">ML</span>
-    <div>
-      <p class="msg-meta"><b>Marcus Lee</b> <time>10:58</time></p>
-      <p>I'll post the announcement Monday morning.</p>
-    </div>
-  </div>
-  <div class="msg">
-    <span class="avatar" style="--c:#b3412b">DO</span>
-    <div>
-      <p class="msg-meta"><b>Dana Ortiz</b> <time>11:03</time></p>
-      <p>Approved. Shipping it 🎉</p>
-      <span class="reaction">🎉 3</span>
-    </div>
-  </div>
-</article>`;
-
-  const pdf = `<div class="as-pdf">
-  <div class="page">
-    <h3># q3-launch</h3>
-    <p class="page-meta">Northwind, exported 2026-10-14</p>
-    <div class="entry">
-      <p><b>Priya Shah</b>, Sep 2, 10:14</p>
-      <p>Final logo files are in the drive. Can someone check the dark variant before Friday?</p>
-      <div class="image" role="img" aria-label="northwind-logo-dark.png">N</div>
-      <div class="reply">
-        <p><b>Marcus Lee</b>, 10:21</p>
-        <p>Looks right. The wordmark spacing is fixed too.</p>
-      </div>
-    </div>
-    <div class="entry">
-      <p><b>Marcus Lee</b>, 10:58</p>
-      <p>I'll post the announcement Monday morning.</p>
-    </div>
-    <div class="entry">
-      <p><b>Dana Ortiz</b>, 11:03</p>
-      <p>Approved. Shipping it 🎉</p>
-    </div>
-    <p class="page-foot">Page 1 of 1</p>
-  </div>
-</div>`;
-
   const formats = {
     md: { file: `${base}.md`, body: md, note: "Free. A single .md file, readable in any editor." },
     csv: { file: `${base}.csv`, body: csv, note: "Free. One row per message, ready for a spreadsheet." },
-    html: {
-      file: `${base}.zip / export.html`,
-      body: html,
-      note: "Full export. A ZIP with the page, images, avatars, and attached files.",
-    },
-    pdf: {
-      file: `${base}.zip / export.pdf`,
-      body: pdf,
-      note: "Full export. Real, searchable text with images inline.",
-    },
   };
 
   const fileEl = demo.querySelector("[data-file]");
