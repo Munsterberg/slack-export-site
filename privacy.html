@@ -46,7 +46,7 @@
   <div class="doc-hero">
     <div class="wrap">
       <h1>Privacy policy</h1>
-      <p class="updated">Last updated October 14, 2026</p>
+      <p class="updated">Last updated October 23, 2026</p>
     </div>
   </div>
 
@@ -57,6 +57,7 @@
         <li>Your Slack messages, files, and sign-in token stay in your browser. We have no server that receives them.</li>
         <li>The extension only reads from Slack. It never posts, edits, or deletes anything.</li>
         <li>The extension collects no analytics or usage data.</li>
+        <li>Full export is an optional one-time purchase through ExtensionPay and Stripe. They never get your messages.</li>
         <li>We don't sell your data or use it for advertising.</li>
       </ul>
     </div>
@@ -72,13 +73,17 @@
     <h2>Your Slack data</h2>
     <p>
       When you start an export, the extension requests messages, replies, channel details, and user profiles from Slack's API,
-      directly from your browser to Slack.
-      It builds the export file in your browser and saves it with Chrome's download feature.
+      directly from your browser to Slack. An HTML or PDF export also asks for your workspace's custom emoji list, and, if a file
+      download returns a sign-in page instead of the file, checks that you are still signed in. For an HTML or PDF export it also downloads the files, images, profile pictures, and custom emoji
+      in those messages from Slack's file servers (<code>slack.com</code> and <code>slack-edge.com</code>).
+      It builds the export file in your browser and saves it with Chrome's download feature, or for a PDF opens it in a tab for Chrome's print dialog.
     </p>
     <ul>
       <li>Message content, file contents, channel names, people's names, and workspace details are never sent to us or to any third party.</li>
       <li>The extension uses read-only Slack API methods. It contains no code that posts, edits, reacts to, or deletes anything in Slack.</li>
       <li>Exported files are saved only to your computer. We don't keep a copy.</li>
+      <li>Files and images are downloaded from <code>slack.com</code> with your Slack session cookie. Profile pictures and custom emoji are downloaded from <code>slack-edge.com</code> without any cookies. No Slack token is sent with any of these downloads.</li>
+      <li>For a PDF, the page and its images are held briefly in the extension's own browser storage (IndexedDB) so the print tab can read them. They are deleted after printing or closing the tab; anything left over is deleted after an hour, the next time the extension runs.</li>
     </ul>
 
     <h2>Your Slack sign-in token</h2>
@@ -90,23 +95,36 @@
     </p>
 
     <h2>Analytics and payments</h2>
+    <p>The extension collects no analytics, telemetry, or usage data.</p>
     <p>
-      The extension collects no analytics, telemetry, or usage data, and it has no payment features.
-      Apart from the requests it makes to Slack on your behalf, it makes no network requests at all.
+      Markdown and CSV exports are free and never contact anyone but Slack.
+      Full export (HTML, PDF, files and images, and exporting several conversations at once) is a one-time purchase handled by
+      <a href="https://extensionpay.com">ExtensionPay</a>, with payment processed by <a href="https://stripe.com">Stripe</a>.
+      Their own policies apply on their checkout pages: <a href="https://extensionpay.com">ExtensionPay</a> (see its site for its privacy policy) and <a href="https://stripe.com/privacy">Stripe's privacy policy</a>.
+      We never see your card details.
     </p>
+    <ul>
+      <li>Nothing is sent to ExtensionPay until you click Unlock Full export or Restore purchase.</li>
+      <li>Then ExtensionPay gives this browser a random install ID (its install key). The extension keeps it in Chrome's synced extension storage, which Chrome may copy to your other computers if you use Chrome sync.</li>
+      <li>After that, the extension sends this ID to ExtensionPay when you open checkout or restore, and asks with it whether you have paid: when you ask it to check again, in rechecks for up to an hour after you open checkout or restore (when a tab closes or you open the extension), when you start an HTML, PDF, or bulk export before your purchase shows up, and otherwise about once a day when you open the extension. ExtensionPay answers with your paid status and the email address you used at checkout. The extension stores that user record in the same synced extension storage, so Chrome sync may copy your email and paid status to your other computers. ExtensionPay also keeps the email on its side.</li>
+      <li>No message, file, channel name, workspace detail, or Slack sign-in token is ever sent to ExtensionPay or Stripe.</li>
+    </ul>
+    <p>Apart from the requests to Slack on your behalf and these requests to ExtensionPay, the extension makes no network requests.</p>
 
     <h2>Permissions the extension asks for</h2>
     <ul>
-      <li><strong>Access to <code>slack.com</code>:</strong> to add the Export button to Slack and to read the conversations you choose to export. This is the only site the extension can access.</li>
+      <li><strong>Access to <code>slack.com</code>:</strong> to add the Export button to Slack and to read the conversations you choose to export. This is the only site the extension can always access.</li>
+      <li><strong>Optional access to <code>slack-edge.com</code>:</strong> asked for only when you run a Full export, to download profile pictures and custom emoji, which Slack stores there. You can say no and still get everything else in the export.</li>
       <li><strong>Downloads:</strong> to save the export file to your computer.</li>
-      <li><strong>Storage:</strong> to track export progress and to hold your Slack session token in memory-only session storage.</li>
+      <li><strong>Storage:</strong> to track export progress, to hold your Slack session token in memory-only session storage, and to keep the license data that ExtensionPay's library writes to Chrome's synced extension storage: the install key and the user record with your checkout email (only after you click Unlock or Restore), and an installed-at date that the library writes for every user with no network call. It also remembers that you paid.</li>
       <li><strong>Offscreen document:</strong> to run exports in the background without opening a tab.</li>
     </ul>
 
     <h2>Chrome Web Store user data policy</h2>
     <p>
       On your device only, the extension handles authentication information (your Slack session token),
-      personal communications (the messages you export), and personal information about the people in them (names). Our use of information received from Slack and Chrome adheres to the
+      personal communications (the messages you export), and personal information about the people in them (names).
+      If you buy Full export, it also handles financial and payment information (your paid status and checkout email from ExtensionPay), which is kept in Chrome's synced extension storage and held by ExtensionPay. Our use of information received from Slack and Chrome adheres to the
       <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq">Chrome Web Store User Data Policy</a>,
       including the Limited Use requirements.
       We don't sell or transfer user data to third parties, use it for advertising, or use it to determine creditworthiness.
@@ -121,7 +139,7 @@
     <h2>Changes to this policy</h2>
     <p>
       If this policy changes, we'll update this page and the date at the top.
-      Future versions may add optional features, such as a paid full-fidelity export or anonymous usage analytics.
+      Future versions may add optional features, such as anonymous usage analytics.
       If a change would send any new kind of data off your device, we'll update this policy first and ask for your consent in the extension.
     </p>
 
@@ -139,6 +157,7 @@
       <nav aria-label="Footer">
         <a href="./">Home</a>
         <a href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Chrome Web Store</a>
+        <a href="https://github.com/Munsterberg/channelexport">Source code</a>
       </nav>
     </div>
   </footer>
