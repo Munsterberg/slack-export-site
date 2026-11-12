@@ -46,7 +46,7 @@
   <div class="doc-hero">
     <div class="wrap">
       <h1>Privacy policy</h1>
-      <p class="updated">Last updated October 23, 2026</p>
+      <p class="updated">Last updated November 12, 2026</p>
     </div>
   </div>
 
@@ -82,6 +82,7 @@
       <li>Message content, file contents, channel names, people's names, and workspace details are never sent to us or to any third party.</li>
       <li>The extension uses read-only Slack API methods. It contains no code that posts, edits, reacts to, or deletes anything in Slack.</li>
       <li>Exported files are saved only to your computer. We don't keep a copy.</li>
+      <li>To list your direct messages in the toolbar popup, the extension asks Slack for the names of the people you have DMs with. It starts when you open the popup and keeps going in the background, about one name a second for each workspace (pausing while an export runs), until it has them all. It keeps those names in Chrome's session storage, which is held in memory, until you close Chrome or the extension updates, so it doesn't ask again each time you open the popup.</li>
       <li>Files and images are downloaded from <code>slack.com</code> with your Slack session cookie. Profile pictures and custom emoji are downloaded from <code>slack-edge.com</code> without any cookies. No Slack token is sent with any of these downloads.</li>
       <li>For a PDF, the page and its images are held briefly in the extension's own browser storage (IndexedDB) so the print tab can read them. They are deleted after printing or closing the tab; anything left over is deleted after an hour, the next time the extension runs.</li>
     </ul>
@@ -116,14 +117,14 @@
       <li><strong>Access to <code>slack.com</code>:</strong> to add the Export button to Slack and to read the conversations you choose to export. This is the only site the extension can always access.</li>
       <li><strong>Optional access to <code>slack-edge.com</code>:</strong> asked for only when you run a Full export, to download profile pictures and custom emoji, which Slack stores there. You can say no and still get everything else in the export.</li>
       <li><strong>Downloads:</strong> to save the export file to your computer.</li>
-      <li><strong>Storage:</strong> to track export progress, to hold your Slack session token in memory-only session storage, and to keep the license data that ExtensionPay's library writes to Chrome's synced extension storage: the install key and the user record with your checkout email (only after you click Unlock or Restore), and an installed-at date that the library writes for every user with no network call. It also remembers that you paid.</li>
+      <li><strong>Storage:</strong> to track export progress, to hold your Slack session token and the names of people you have DMs with in memory-only session storage, and to keep the license data that ExtensionPay's library writes to Chrome's synced extension storage: the install key and the user record with your checkout email (only after you click Unlock or Restore), and an installed-at date that the library writes for every user with no network call. It also remembers that you paid.</li>
       <li><strong>Offscreen document:</strong> to run exports in the background without opening a tab.</li>
     </ul>
 
     <h2>Chrome Web Store user data policy</h2>
     <p>
       On your device only, the extension handles authentication information (your Slack session token),
-      personal communications (the messages you export), and personal information about the people in them (names).
+      personal communications (the messages you export), and personal information about the people in them and the people you have DMs with (names).
       If you buy Full export, it also handles financial and payment information (your paid status and checkout email from ExtensionPay), which is kept in Chrome's synced extension storage and held by ExtensionPay. Our use of information received from Slack and Chrome adheres to the
       <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq">Chrome Web Store User Data Policy</a>,
       including the Limited Use requirements.
