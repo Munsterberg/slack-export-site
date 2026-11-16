@@ -43,7 +43,7 @@
       "@id": "https://channelexport.app/#app",
       "name": "Channel Export",
       "url": "https://channelexport.app/",
-      "description": "A free Chrome extension that exports any Slack channel, DM, group DM, or thread you can already see to Markdown or CSV, without admin rights. Messages never leave your browser.",
+      "description": "A Chrome extension that exports any Slack channel, DM, group DM, or thread you can already see to Markdown, CSV, HTML, or PDF, without admin rights. Messages never leave your browser.",
       "applicationCategory": "BrowserApplication",
       "applicationSubCategory": "Productivity",
       "operatingSystem": "Chrome",
@@ -54,6 +54,7 @@
       "featureList": [
         "Export Slack channels, DMs, group DMs, and threads",
         "Markdown and CSV export, free with no limits",
+        "HTML and PDF export, files and images, and bulk export with Full export",
         "Choose a date range and whether to include thread replies",
         "Read-only",
         "No admin rights required",
@@ -64,6 +65,12 @@
           "@type": "Offer",
           "name": "Free",
           "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full export",
+          "price": "7",
           "priceCurrency": "USD"
         }
       ]
@@ -85,7 +92,7 @@
           "name": "Can I export DMs, group DMs, and private channels?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads. Export a direct message with the Export button in the conversation itself. Channels, private channels, and group DMs can also be picked from the extension popup."
+            "text": "Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads. Pick any of them from the extension popup, or use the Export button in the conversation itself."
           }
         },
         {
@@ -93,7 +100,7 @@
           "name": "Can I export Slack messages to PDF?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not yet. Version 1.0 exports Markdown and CSV, free for any conversation, with no limits. HTML and PDF are coming later, as part of Full export."
+            "text": "Yes, with Full export. Choose PDF in the export form and the extension opens the conversation in a tab for Chrome's print dialog. Pick Save as PDF there. Markdown and CSV stay free, with no limits."
           }
         },
         {
@@ -117,7 +124,7 @@
           "name": "Where do my messages go?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only to your computer. The extension asks Slack for the messages through your own browser session, builds the file in your browser, and saves it to your Downloads folder. We have no server that receives message content. The extension collects no analytics or usage data. Your Slack sign-in token stays in memory-only session storage. The privacy policy has the details."
+            "text": "Only to your computer. The extension asks Slack for the messages through your own browser session, builds the file in your browser, and saves it to your Downloads folder. We have no server that receives message content. The extension collects no analytics or usage data. Your Slack sign-in token stays in memory-only session storage. If you buy Full export, ExtensionPay learns a random install ID and your checkout email, never your messages. The privacy policy has the details."
           }
         },
         {
@@ -133,7 +140,7 @@
           "name": "Do I have to pay?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Version 1.0 is free, with no limits. A paid Full export with HTML, PDF, and files and images is coming later. It will be a single $7 payment, not a subscription."
+            "text": "No. Markdown and CSV are free, with no limits. Full export adds HTML, PDF, files and images, and exporting several conversations at once. It's a single $7 payment, not a subscription. Nothing is sent to ExtensionPay, which handles payment, until you click Unlock Full export or Restore purchase. Already paid on another computer? Use Restore purchase."
           }
         }
       ]
@@ -165,7 +172,7 @@
           <h1>Save Slack conversations to your computer. Nobody else gets a copy.</h1>
           <div class="hero-row">
             <p class="lede">
-              Export the channels, DMs, and threads you can already see to Markdown or CSV. Free, with no limits.
+              Export the channels, DMs, and threads you can already see to Markdown or CSV, free with no limits, or to HTML and PDF with Full export.
               A Chrome extension that needs no admin rights and no Slack app install. Your browser does the whole export.
             </p>
             <div class="hero-actions">
@@ -290,10 +297,40 @@ Approved. Shipping it 🎉
                   <td>Slack</td>
                   <td>Your sign-in, asking for channel details, your conversation list, and names</td>
                 </tr>
+                <tr>
+                  <td><code>emoji.list</code> (HTML and PDF exports)</td>
+                  <td>Slack</td>
+                  <td>Your sign-in, asking for your workspace's custom emoji names and where their images are</td>
+                </tr>
+                <tr>
+                  <td><code>auth.test</code> (Full export, only if a file download returns a sign-in page)</td>
+                  <td>Slack</td>
+                  <td>Your sign-in, checking that you're still signed in before the export goes on or stops</td>
+                </tr>
+                <tr>
+                  <td>Download files and images (Full export)</td>
+                  <td>Slack, at <code>slack.com</code></td>
+                  <td>Your Slack session cookie, asking for the files in the messages. Your sign-in token is not sent.</td>
+                </tr>
+                <tr>
+                  <td>Download profile pictures and custom emoji (Full export, only if you allow it)</td>
+                  <td>Slack, at <code>slack-edge.com</code></td>
+                  <td>Nothing. Plain requests with no cookies and no sign-in.</td>
+                </tr>
+                <tr>
+                  <td>Check whether you've paid (never before you click Unlock Full export or Restore purchase)</td>
+                  <td>ExtensionPay</td>
+                  <td>A random install ID. Sent when you open checkout or restore, when you ask it to check again, in rechecks for up to an hour after checkout or restore, when you start a Full export before your purchase shows up, and otherwise about once a day once you've used checkout or restore. It answers with whether you've paid and the email you used at checkout. Never any messages or Slack details.</td>
+                </tr>
+                <tr>
+                  <td>Pay for Full export</td>
+                  <td>ExtensionPay and Stripe, on their own checkout page</td>
+                  <td>Your payment details, which you enter on their page. We never see them.</td>
+                </tr>
                 <tr class="log-local">
                   <td>Build and save the file</td>
                   <td>Your Downloads folder</td>
-                  <td>The export. This never leaves your computer.</td>
+                  <td>The export. This never leaves your computer. A PDF is held briefly in the extension's own storage for Chrome's print dialog, then deleted.</td>
                 </tr>
               </tbody>
             </table>
@@ -304,7 +341,7 @@ Approved. Shipping it 🎉
       <section class="section section-tight" aria-labelledby="shots-title">
         <div class="wrap">
           <h2 id="shots-title">Inside your Slack</h2>
-          <p class="section-lede">The Export button sits in the channel header and the thread panel. The toolbar popup can also pick a channel, private channel, or group DM to export.</p>
+          <p class="section-lede">The Export button sits in the channel header and the thread panel. The toolbar popup can also pick any channel, DM, or group DM to export.</p>
           <div class="shots">
             <figure class="shot shot-main">
               <div class="shot-frame"><img src="assets/screenshots/01-dialog.png" alt="The Export dialog: Markdown or CSV, a date range, and thread replies" width="1280" height="800" loading="lazy"></div>
@@ -332,8 +369,8 @@ Approved. Shipping it 🎉
 
       <section class="section" id="pricing" aria-labelledby="pricing-title">
         <div class="wrap">
-          <h2 id="pricing-title">Free, with no limits.</h2>
-          <p class="section-lede">Version 1.0 is free. It isn't a trial. No message limits, no account.</p>
+          <h2 id="pricing-title">Free for Markdown and CSV. Pay once for more.</h2>
+          <p class="section-lede">Markdown and CSV are free, with no message limits and no account. Full export is optional and one-time.</p>
 
           <div class="folders">
             <div class="folder">
@@ -350,17 +387,20 @@ Approved. Shipping it 🎉
               </div>
             </div>
             <div class="folder folder-paid">
-              <div class="folder-tab">Full export: coming soon</div>
+              <div class="folder-tab">Full export</div>
               <div class="folder-body">
-                <p class="price">$7 <span>one time, coming soon</span></p>
+                <p class="price">$7 <span>one time</span></p>
                 <ul class="ticks">
-                  <li>HTML and PDF</li>
-                  <li>Files and images in the export</li>
+                  <li>Everything in Free</li>
+                  <li>HTML with images, files, avatars, and custom emoji, in a ZIP that works offline</li>
+                  <li>PDF, saved with Chrome's Save as PDF</li>
+                  <li>Files and images downloaded into the export</li>
+                  <li>Export many conversations at once</li>
                 </ul>
               </div>
             </div>
           </div>
-          <p class="fine">Full export isn't available yet. There's nothing to buy today.</p>
+          <p class="fine">One payment through ExtensionPay and Stripe, not a subscription. Paid on another computer? Use Restore purchase in the extension.</p>
         </div>
       </section>
 
@@ -382,15 +422,15 @@ Approved. Shipping it 🎉
               <summary>Can I export DMs, group DMs, and private channels?</summary>
               <div class="answer">
                 <p>Yes. If you can open a conversation in Slack, you can export it. That includes direct messages, group DMs, private channels you're a member of, and single threads.</p>
-                <p>Export a direct message with the Export button in the conversation itself. Channels, private channels, and group DMs can also be picked from the extension popup.</p>
+                <p>Pick any of them from the extension popup, or use the Export button in the conversation itself.</p>
               </div>
             </details>
 
             <details>
               <summary>Can I export Slack messages to PDF?</summary>
               <div class="answer">
-                <p>Not yet. Version 1.0 exports Markdown and CSV, free for any conversation, with no limits.</p>
-                <p>HTML and PDF are coming later, as part of Full export.</p>
+                <p>Yes, with Full export. Choose PDF in the export form and the extension opens the conversation in a tab for Chrome's print dialog. Pick Save as PDF there.</p>
+                <p>Markdown and CSV stay free, with no limits.</p>
               </div>
             </details>
 
@@ -413,7 +453,7 @@ Approved. Shipping it 🎉
               <summary>Where do my messages go?</summary>
               <div class="answer">
                 <p>Only to your computer. The extension asks Slack for the messages through your own browser session, builds the file in your browser, and saves it to your Downloads folder. We have no server that receives message content.</p>
-                <p>The extension collects no analytics or usage data. Your Slack sign-in token stays in memory-only session storage. The <a href="privacy">privacy policy</a> has the details.</p>
+                <p>The extension collects no analytics or usage data. Your Slack sign-in token stays in memory-only session storage. If you buy Full export, ExtensionPay learns a random install ID and your checkout email, never your messages. The <a href="privacy">privacy policy</a> has the details.</p>
               </div>
             </details>
 
@@ -429,7 +469,8 @@ Approved. Shipping it 🎉
             <details>
               <summary>Do I have to pay?</summary>
               <div class="answer">
-                <p>No. Version 1.0 is free, with no limits. A paid Full export with HTML, PDF, and files and images is coming later. It will be a single $7 payment, not a subscription.</p>
+                <p>No. Markdown and CSV are free, with no limits. Full export adds HTML, PDF, files and images, and exporting several conversations at once. It's a single $7 payment, not a subscription.</p>
+                <p>Nothing is sent to ExtensionPay, which handles payment, until you click Unlock Full export or Restore purchase. Already paid on another computer? Use Restore purchase.</p>
               </div>
             </details>
           </div>
@@ -450,6 +491,7 @@ Approved. Shipping it 🎉
       <nav aria-label="Footer">
         <a href="privacy">Privacy policy</a>
         <a href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Chrome Web Store</a>
+        <a href="https://github.com/Munsterberg/channelexport">Source code</a>
       </nav>
     </div>
   </footer>
