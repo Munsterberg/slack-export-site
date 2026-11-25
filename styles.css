@@ -982,6 +982,71 @@ html:not(.js) .export-btn {
   outline-color: var(--manila);
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.site-footer .footer-guides {
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+
+.footer-label {
+  color: #c3c9ff;
+  font-weight: 600;
+}
+
+.site-footer a[aria-current="page"] {
+  text-decoration-line: underline;
+  text-decoration-color: var(--manila);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 0.2em;
+}
+
+/* Guide pages. The homepage hero keeps extra bottom padding for the demo. */
+
+.guide-hero {
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.guide-copy {
+  max-width: 40rem;
+}
+
+.guide-copy .steps {
+  margin: 1.35rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.guide-copy .steps li + li {
+  margin-top: 0.7rem;
+}
+
+.guide-copy .prose {
+  margin-top: 2rem;
+}
+
+.guide-copy .prose p + p {
+  margin-top: 0.875rem;
+}
+
+.section-guides {
+  padding-block: 0 clamp(3rem, 6vw, 4.5rem);
+}
+
+.guide-links {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.guide-links li + li {
+  margin-top: 0.45rem;
+}
+
 /* Privacy policy */
 
 .doc-hero {
