@@ -1,0 +1,13 @@
+[
+  {
+    "id": "C001",
+    "name": "general",
+    "is_archived": false,
+    "members": ["U001", "U002"]
+  },
+  {
+    "id": "C002",
+    "name": "launch",
+    "members": ["U001"]
+  }
+]

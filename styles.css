@@ -1047,6 +1047,247 @@ html:not(.js) .export-btn {
   margin-top: 0.45rem;
 }
 
+/* Slack export viewer */
+
+.viewer-section {
+  margin-top: clamp(-3.5rem, -6vw, -2rem);
+  padding-top: 0;
+}
+
+.viewer [hidden] {
+  display: none !important;
+}
+
+.viewer {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 30px 60px -30px rgb(15 22 56 / 0.45), 0 0 0 1px rgb(15 22 56 / 0.08);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.dropzone {
+  padding: clamp(1.5rem, 4vw, 2.75rem) 1.25rem;
+  border: 1.5px dashed var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.dropzone.is-drag {
+  border-color: var(--cobalt);
+  background: #eef0ff;
+}
+
+.drop-title {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.dropzone p + p {
+  max-width: 36rem;
+  margin: 0.7rem auto 0;
+  color: var(--muted);
+}
+
+.viewer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.15rem;
+}
+
+.viewer.is-loaded .drop-title,
+.viewer.is-loaded .dropzone p {
+  display: none;
+}
+
+.viewer.is-loaded .dropzone {
+  padding: 0.85rem 1rem;
+}
+
+.viewer.is-loaded .viewer-actions {
+  margin-top: 0;
+}
+
+.viewer-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cobalt);
+  color: var(--white);
+  font: 700 0.9375rem/1.2 var(--sans);
+  font-stretch: 112%;
+  cursor: pointer;
+}
+
+.viewer-btn:hover {
+  background: var(--cobalt-deep);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.viewer-btn.secondary {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+
+.viewer-btn.secondary:hover {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+
+.viewer-btn:disabled,
+.viewer-btn:has(input:disabled) {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.viewer-file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viewer-status,
+.viewer-count,
+.viewer-note {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.viewer-status {
+  margin-top: 0.9rem;
+}
+
+.viewer-error {
+  margin-top: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: #fff4f0;
+  box-shadow: inset 3px 0 0 #b3412b;
+}
+
+.viewer-warnings {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+  border-radius: 8px;
+  background: #fff8e4;
+  font-size: 0.875rem;
+}
+
+.viewer-warnings li + li {
+  margin-top: 0.35rem;
+}
+
+.viewer-app {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.viewer-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.viewer-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.viewer-search {
+  flex: 1 1 14rem;
+}
+
+.viewer-field select,
+.viewer-field input {
+  width: 100%;
+  min-width: 12rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font: 400 1rem/1.4 var(--sans);
+}
+
+.viewer-count {
+  margin-top: 0.85rem;
+}
+
+.viewer-log {
+  list-style: none;
+  max-height: 36rem;
+  margin: 0.85rem 0 0;
+  padding: 1rem 0.25rem 0.25rem;
+  overflow: auto;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 1rem;
+}
+
+.viewer-msg {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 4.5rem;
+  min-width: 0;
+}
+
+.viewer-msg.is-reply {
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--line);
+}
+
+.viewer-text {
+  margin-top: 0.15rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.viewer-text.is-empty {
+  color: var(--muted);
+}
+
+.viewer-more {
+  margin-top: 0.9rem;
+}
+
+.viewer-note {
+  margin-top: 0.9rem;
+  font-size: 0.8125rem;
+}
+
+.guide-copy code,
+.answer code {
+  font: 0.85em var(--mono);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
 /* Privacy policy */
 
 .doc-hero {
@@ -1189,6 +1430,20 @@ html:not(.js) .export-btn {
   .log td:nth-child(2)::before {
     content: "To " / "";
     font-weight: 400;
+  }
+
+  .viewer-toolbar {
+    align-items: stretch;
+  }
+
+  .viewer-field select,
+  .viewer-field input,
+  .viewer-search {
+    min-width: 0;
+  }
+
+  .viewer-toolbar .viewer-btn {
+    flex: 1 1 auto;
   }
 }
 

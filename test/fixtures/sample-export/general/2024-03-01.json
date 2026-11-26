@@ -1,0 +1,24 @@
+[
+  {
+    "type": "message",
+    "user": "U001",
+    "text": "Hello <@U002>, the logo is ready &amp; waiting. See <#C002> and <!here>.",
+    "ts": "1709280000.000100",
+    "thread_ts": "1709280000.000100",
+    "reply_count": 1
+  },
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "user": "U002",
+    "text": "<@U002> has joined the channel",
+    "ts": "1709279900.000000"
+  },
+  {
+    "type": "message",
+    "user": "U002",
+    "text": "Looks good <@U001|Priya>",
+    "ts": "1709280300.000200",
+    "thread_ts": "1709280000.000100"
+  }
+]

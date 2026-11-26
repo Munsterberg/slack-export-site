@@ -1,0 +1,20 @@
+[
+  {
+    "id": "U001",
+    "name": "priya",
+    "real_name": "Priya Shah",
+    "profile": {
+      "display_name": "Priya",
+      "real_name": "Priya Shah"
+    }
+  },
+  {
+    "id": "U002",
+    "name": "marcus",
+    "real_name": "Marcus Lee",
+    "profile": {
+      "display_name": "",
+      "real_name": "Marcus Lee"
+    }
+  }
+]
