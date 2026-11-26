@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slack export viewer: convert Slack export JSON to CSV | Channel Export</title>
+  <meta name="description" content="Open a Slack workspace export in your browser. Read channels, resolve names and mentions, and convert Slack export JSON to CSV or Markdown. Nothing is uploaded.">
+  <link rel="canonical" href="https://channelexport.app/slack-export-viewer">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#2335d8">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Channel Export">
+  <meta property="og:url" content="https://channelexport.app/slack-export-viewer">
+  <meta property="og:title" content="Slack export viewer: convert Slack export JSON to CSV">
+  <meta property="og:description" content="Open a Slack workspace export in your browser. Read channels, resolve names and mentions, and convert Slack export JSON to CSV or Markdown. Nothing is uploaded.">
+  <meta property="og:image" content="https://channelexport.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Channel Export: save Slack conversations to your computer. Nobody else gets a copy.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Slack export viewer: convert Slack export JSON to CSV">
+  <meta name="twitter:description" content="Open a Slack workspace export in your browser. Read channels, resolve names and mentions, and convert Slack export JSON to CSV or Markdown. Nothing is uploaded.">
+  <meta name="twitter:image" content="https://channelexport.app/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is a Slack export JSON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Slack writes each day of a channel as a JSON file of messages, and lists people in users.json. It is the workspace data export from Settings, then Import/Export, not a CSV. This viewer turns that JSON into a readable list, a CSV, or Markdown."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are private channels and DMs missing from my export?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An export from a Free or Pro workspace only includes public channels. Private channels and direct messages are included only when an owner or admin exports a Business+ or Enterprise Grid workspace. If you can open the conversation yourself, the Channel Export extension can save it without that admin export."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this page upload my export?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The ZIP or JSON is read in your browser. Messages are not sent to a server. Downloaded CSV and Markdown files go to your computer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert Slack export JSON to CSV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Drop the export ZIP, or the dated JSON files from a channel folder. Pick the channel and choose Download CSV. Each message is a row: timestamp (ISO), user, text, thread_ts, and reply_count. User IDs are replaced with names when users.json is in the export, and <@U…> mentions are filled in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the file is very large?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The page reads it locally and shows the first messages, then more when you ask. A huge ZIP can still use a lot of memory and make the tab slow. If that happens, unzip the export and drop one channel folder instead of the whole workspace."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export a Slack channel without admin access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not with Slack's own export. That file is only for owners and admins. Channel Export runs in Chrome on conversations you can already see, including channels, DMs, and threads, and saves Markdown or CSV on your computer."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" width="30" height="30" alt="">
+        Channel Export
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="/privacy">Privacy</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero guide-hero">
+      <div class="wrap">
+        <h1>Slack export viewer</h1>
+        <div class="hero-row">
+          <p class="lede">Open the ZIP from Slack's workspace export, or the channel JSON inside it. Read the messages, then convert Slack export JSON to CSV or Markdown. The file stays in this browser.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section viewer-section" aria-labelledby="tool-title">
+      <div class="wrap">
+        <h2 id="tool-title" class="visually-hidden">Open a Slack export</h2>
+        <div class="viewer" data-viewer>
+          <div class="dropzone" data-drop>
+            <p class="drop-title">Drop a Slack export ZIP</p>
+            <p>From Slack: workspace settings, then Import/Export. You can also drop channel JSON files, or a channel folder.</p>
+            <div class="viewer-actions">
+              <label class="viewer-btn">
+                Choose files
+                <input class="viewer-file" type="file" data-file multiple accept=".zip,.json,application/zip,application/json">
+              </label>
+              <label class="viewer-btn secondary">
+                Choose a folder
+                <input class="viewer-file" type="file" data-dir webkitdirectory directory multiple>
+              </label>
+            </div>
+          </div>
+          <p class="viewer-status" data-status role="status">Nothing is uploaded. Parsing runs in this tab.</p>
+          <p class="viewer-error" data-error role="alert" hidden></p>
+          <ul class="viewer-warnings" data-warnings hidden></ul>
+
+          <div class="viewer-app" data-app hidden>
+            <div class="viewer-toolbar">
+              <label class="viewer-field">
+                Channel
+                <select data-channel></select>
+              </label>
+              <label class="viewer-field viewer-search">
+                Search
+                <input type="search" data-search placeholder="User or message text" autocomplete="off">
+              </label>
+              <button class="viewer-btn" type="button" data-csv>Download CSV</button>
+              <button class="viewer-btn secondary" type="button" data-md>Download Markdown</button>
+            </div>
+            <p class="viewer-count" data-count></p>
+            <ol class="viewer-log" data-log></ol>
+            <button class="viewer-btn secondary viewer-more" type="button" data-more hidden>Show more</button>
+            <p class="viewer-note">Times on screen use your time zone. CSV and Markdown timestamps are UTC. CSV columns: timestamp, user, text, thread_ts, reply_count.</p>
+          </div>
+        </div>
+        <noscript><p class="viewer-error">This tool needs JavaScript. It runs in your browser, and the export is not uploaded.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap guide-copy">
+        <h2 id="how-title">Convert Slack export JSON to CSV</h2>
+        <ol class="steps">
+          <li>In Slack, open workspace settings and choose Import/Export. Download the export. You need to be an owner or admin.</li>
+          <li>Drop the ZIP here, or unzip it and drop a channel folder of JSON files.</li>
+          <li>Pick a channel, search if you need to, and download CSV or Markdown.</li>
+        </ol>
+        <div class="prose">
+          <p>Slack's own export is not a spreadsheet. The ZIP holds one folder per conversation. Each day of messages is a JSON file, and <code>users.json</code> lists people, so an ID such as <code>U0…</code> can be shown as a name. A mention is stored as <code>&lt;@U0…&gt;</code>. This Slack export viewer reads that structure and fills in the names.</p>
+          <p>On Free and Pro plans, the export only includes public channels. Private channels and direct messages are left out. Including them takes a Business+ or Enterprise Grid workspace, and an owner or admin still has to run the export.</p>
+          <p>CSV has one row per message: timestamp in ISO format, user, text, <code>thread_ts</code>, and <code>reply_count</code>. Markdown is grouped by day. The file is parsed in this tab. It is not uploaded, and this tool does not set a cookie.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="extension-title">
+      <div class="wrap guide-copy">
+        <h2 id="extension-title">Export a channel, DM, or thread without an admin</h2>
+        <div class="prose">
+          <p>Slack's export is the wrong tool when you just need one conversation, or when you aren't an owner. <a href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih">Channel Export</a> is a Chrome extension that saves a channel, direct message, group DM, or thread you can already open. It does not need a workspace export or admin rights.</p>
+          <p>Add it from the Chrome Web Store, open the conversation at <a href="https://app.slack.com">app.slack.com</a>, and click Export. Markdown and CSV save to your computer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2 id="faq-title">Questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Why is a Slack export JSON?</summary>
+            <div class="answer"><p>Slack writes each day of a channel as a JSON file of messages, and lists people in <code>users.json</code>. It is the workspace data export from Settings, then Import/Export, not a CSV. This viewer turns that JSON into a readable list, a CSV, or Markdown.</p></div>
+          </details>
+          <details>
+            <summary>Why are private channels and DMs missing from my export?</summary>
+            <div class="answer"><p>An export from a Free or Pro workspace only includes public channels. Private channels and direct messages are included only when an owner or admin exports a Business+ or Enterprise Grid workspace. If you can open the conversation yourself, the Channel Export extension can save it without that admin export.</p></div>
+          </details>
+          <details>
+            <summary>Does this page upload my export?</summary>
+            <div class="answer"><p>No. The ZIP or JSON is read in your browser. Messages are not sent to a server. Downloaded CSV and Markdown files go to your computer.</p></div>
+          </details>
+          <details>
+            <summary>How do I convert Slack export JSON to CSV?</summary>
+            <div class="answer"><p>Drop the export ZIP, or the dated JSON files from a channel folder. Pick the channel and choose Download CSV. Each message is a row: timestamp (ISO), user, text, <code>thread_ts</code>, and <code>reply_count</code>. User IDs are replaced with names when <code>users.json</code> is in the export, and <code>&lt;@U…&gt;</code> mentions are filled in.</p></div>
+          </details>
+          <details>
+            <summary>What if the file is very large?</summary>
+            <div class="answer"><p>The page reads it locally and shows the first messages, then more when you ask. A huge ZIP can still use a lot of memory and make the tab slow. If that happens, unzip the export and drop one channel folder instead of the whole workspace.</p></div>
+          </details>
+          <details>
+            <summary>Can I export a Slack channel without admin access?</summary>
+            <div class="answer"><p>Not with Slack's own export. That file is only for owners and admins. Channel Export runs in Chrome on conversations you can already see, including channels, DMs, and threads, and saves Markdown or CSV on your computer.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <h2 id="install-title">Export a channel without an admin.</h2>
+        <a class="button button-manila" href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Add to Chrome, free</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Not affiliated with or endorsed by Slack Technologies, LLC. Slack is a trademark of Slack Technologies, LLC.</p>
+      <div class="footer-links">
+        <nav class="footer-guides" aria-label="Guides">
+          <span class="footer-label">Guides</span>
+          <a href="/export-slack-without-admin">Export without admin</a>
+          <a href="/export-slack-dms">Export Slack DMs</a>
+          <a href="/export-slack-thread">Export a thread</a>
+          <a href="/export-slack-channel-to-csv">Export to CSV</a>
+        </nav>
+        <nav class="footer-guides" aria-label="Tools">
+          <span class="footer-label">Tools</span>
+          <a href="/slack-export-viewer" aria-current="page">Slack export viewer</a>
+        </nav>
+        <nav aria-label="Footer">
+          <a href="/privacy">Privacy policy</a>
+          <a href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Chrome Web Store</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="/vendor/fflate.js"></script>
+  <script type="module" src="/slack-export-viewer.js"></script>
+  <script data-goatcounter="https://channelexport.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

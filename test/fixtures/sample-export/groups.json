@@ -1,0 +1,8 @@
+[
+  {
+    "id": "G001",
+    "name": "secret",
+    "is_private": true,
+    "members": ["U001", "U002"]
+  }
+]
