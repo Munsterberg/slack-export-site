@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to save Slack messages before the free plan's 90-day limit hides them | Channel Export</title>
+  <meta name="description" content="Slack's free plan shows 90 days of history and deletes data older than a year. Save channels and DMs as Markdown or CSV before they disappear.">
+  <link rel="canonical" href="https://channelexport.app/save-slack-messages-free-plan">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#2335d8">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Channel Export">
+  <meta property="og:url" content="https://channelexport.app/save-slack-messages-free-plan">
+  <meta property="og:title" content="How to save Slack messages before the free plan's 90-day limit hides them">
+  <meta property="og:description" content="Slack's free plan shows 90 days of history and deletes data older than a year. Save channels and DMs as Markdown or CSV before they disappear.">
+  <meta property="og:image" content="https://channelexport.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Channel Export: save Slack conversations to your computer. Nobody else gets a copy.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to save Slack messages before the free plan's 90-day limit hides them">
+  <meta name="twitter:description" content="Slack's free plan shows 90 days of history and deletes data older than a year. Save channels and DMs as Markdown or CSV before they disappear.">
+  <meta name="twitter:image" content="https://channelexport.app/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to save Slack messages before the free plan's 90-day limit hides them",
+      "description": "Slack's free plan shows 90 days of history and deletes data older than a year. Save channels and DMs as Markdown or CSV before they disappear.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "text": "Add Channel Export to Chrome."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "text": "Open the channel, DM, group DM, or thread at app.slack.com in Chrome."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "text": "Click Export in the conversation, or pick it from the extension's toolbar popup."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "text": "Choose Markdown or CSV and a date range, then save. Markdown and CSV are free. HTML and PDF are in the $7 Full export."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Slack delete free-plan messages after 90 days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not by default. You can view and search the last 90 days of messages and files. Older ones are hidden. Since August 26, 2024, Slack deletes messages and files older than one year from free workspaces. A workspace owner can instead choose to delete messages after 90 days. Deleted messages are not in the app, and they are not in a later export."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Slack's free-plan export save DMs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. On the free plan, only a workspace owner or admin can run Slack's export, and it only includes public channels. The file is a ZIP of JSON. Private channels, group DMs, and 1:1 DMs are not included. If you can open the conversation, Channel Export can save it as Markdown or CSV."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export messages older than 90 days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Channel Export saves the history Slack shows you, which on the free plan is the last 90 days. It cannot reach a message Slack has already hidden. Slack's own export, run by an owner or admin, includes public-channel messages the workspace still stores, and it leaves out data older than one year. It still does not include DMs or private channels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does an export upload my messages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Channel Export runs in your browser. We have no server that receives your messages. Slack's official export is a ZIP downloaded by the owner or admin who started it. The Slack export viewer reads that ZIP in your browser and does not upload it."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" width="30" height="30" alt="">
+        Channel Export
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="/privacy">Privacy</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero guide-hero">
+      <div class="wrap">
+        <h1>How to save Slack messages before the free plan's 90-day limit hides them</h1>
+        <div class="hero-row">
+          <p class="lede">Slack's free plan only shows the last 90 days of messages and files, and since August 26, 2024 it deletes data older than one year. Export what you still need before it is hidden or deleted: an owner can run Slack's public-channel export, or any member can save conversations they can open.</p>
+          <div class="hero-actions">
+            <a class="button button-manila" href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Add to Chrome, free</a>
+            <span class="hero-note">For Slack in Chrome, at app.slack.com</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="limits" aria-labelledby="limits-title">
+      <div class="wrap guide-copy">
+        <h2 id="limits-title">What the 90-day and one-year limits mean</h2>
+        <div class="prose">
+          <p>On the free plan, Slack lets you view and search messages and files from the last 90 days. Files include clips, documents, images, and audio and video. After 90 days, Slack hides the message or file. It drops out of the channel and out of search.</p>
+          <p>Hiding is not the same as deleting. Since August 26, 2024, Slack deletes messages and files older than one year from free workspaces, on a rolling basis. A workspace owner can choose a stricter setting and delete messages after 90 days instead of keeping them for a year. Once that deletion runs, the messages are gone.</p>
+          <p>If the workspace later moves to a paid plan, Slack shows hidden messages and files that have not been deleted. An upgrade does not bring back anything already deleted. Slack describes both limits in <a href="https://slack.com/help/articles/115002422943-Usage-limits-for-free-workspaces">Usage limits for free workspaces</a>.</p>
+        </div>
+
+        <h2 id="official-title">Option 1: Slack's official export</h2>
+        <div class="prose">
+          <p>Workspace owners and admins can export the workspace from Slack. On the free plan that export covers public channels only. Private channels, 1:1 DMs, and group DMs are not included. The download is a ZIP of JSON, with one file per channel per day, plus <code>users.json</code> and <code>channels.json</code>. It includes links to files, not the files themselves, and on the free plan those links only go back 90 days.</p>
+        </div>
+        <ol class="steps">
+          <li>From Slack on your desktop, click Admin in the sidebar.</li>
+          <li>Select Workspace settings, then click Security.</li>
+          <li>Click Import &amp; export data, then open the Export tab.</li>
+          <li>Under Export date range, choose a range and click Start Export.</li>
+          <li>When the email arrives, open it and download the ZIP from the export page.</li>
+        </ol>
+        <div class="prose">
+          <p>These steps follow Slack's <a href="https://slack.com/help/articles/201658943-Export-your-workspace-data">Export your workspace data</a>. The export includes public-channel messages the workspace still stores, not only the 90 days you can scroll to in the app. It leaves out data older than one year, and it leaves out messages the workspace has already deleted. A regular member cannot run it.</p>
+          <p>JSON is awkward to read. To open the ZIP, or to turn it into CSV or Markdown, use the <a href="/slack-export-viewer">Slack export viewer</a>. It runs in your browser and does not upload the file.</p>
+        </div>
+
+        <h2 id="extension-title">Option 2: Channel Export</h2>
+        <div class="prose">
+          <p>Channel Export is a Chrome extension. Any member can export a public channel, a private channel they belong to, a 1:1 DM, a group DM, or a thread they can already open. You do not need to be an owner or admin, and nothing is installed in the workspace. This is how a member saves a free-plan conversation Slack's own export leaves out, including DMs.</p>
+        </div>
+        <ol class="steps">
+          <li>Add Channel Export to Chrome.</li>
+          <li>Open the channel, DM, group DM, or thread at app.slack.com in Chrome.</li>
+          <li>Click Export in the conversation, or pick it from the extension's toolbar popup.</li>
+          <li>Choose Markdown or CSV and a date range, then save. Markdown and CSV are free. HTML and PDF are in the $7 Full export.</li>
+        </ol>
+        <div class="prose">
+          <p>Install it from the <a href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih">Chrome Web Store</a>. Markdown is a readable document with names, timestamps, thread replies, reactions, and links back to files. CSV is one row per message, for a spreadsheet.</p>
+          <p>Markdown and CSV are free, with no message limits and no account. Full export is a single $7 payment, not a subscription. It adds HTML with images, files, avatars, and custom emoji in a ZIP that works offline, PDF through Chrome's Save as PDF, the files and images downloaded into the export, and exporting several conversations at once.</p>
+          <p>The export runs in your browser, using your own Slack sign-in. We have no server that receives your messages. The extension only exports conversations your account can already see, and it never posts, edits, or deletes anything. On the free plan, that is the last 90 days. It cannot recover a message Slack has already hidden. The <a href="/privacy">privacy policy</a> has the details.</p>
+          <p>It does not run inside the Slack desktop app, because browser extensions only run in a web browser. Open app.slack.com in Chrome, sign in to the same workspace, and export from there.</p>
+          <p>This extension is not made by, affiliated with, or endorsed by Slack Technologies, LLC. Your workspace may still have rules about keeping copies of messages, especially at work. Check them before you export.</p>
+        </div>
+
+        <h2 id="routine-title">Export important channels and DMs once a month</h2>
+        <div class="prose">
+          <p>Once a month, export the channels and DMs you would mind losing. Markdown or CSV is enough for a record you can search later. Keep the files on your computer, or anywhere else you control.</p>
+          <p>A monthly export stays inside the 90 days Slack still shows, so you copy messages before they drop out of view and before the one-year deletion. If you are an owner or admin, run Slack's public-channel export on that same cadence and read the ZIP in the viewer. Export DMs yourself. Slack's free-plan export does not include them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2 id="faq-title">Questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Does Slack delete free-plan messages after 90 days?</summary>
+            <div class="answer"><p>Not by default. You can view and search the last 90 days of messages and files. Older ones are hidden. Since August 26, 2024, Slack deletes messages and files older than one year from free workspaces. A workspace owner can instead choose to delete messages after 90 days. Deleted messages are not in the app, and they are not in a later export.</p></div>
+          </details>
+          <details>
+            <summary>Can Slack's free-plan export save DMs?</summary>
+            <div class="answer"><p>No. On the free plan, only a workspace owner or admin can run Slack's export, and it only includes public channels. The file is a ZIP of JSON. Private channels, group DMs, and 1:1 DMs are not included. If you can open the conversation, Channel Export can save it as Markdown or CSV.</p></div>
+          </details>
+          <details>
+            <summary>Can I export messages older than 90 days?</summary>
+            <div class="answer"><p>Channel Export saves the history Slack shows you, which on the free plan is the last 90 days. It cannot reach a message Slack has already hidden. Slack's own export, run by an owner or admin, includes public-channel messages the workspace still stores, and it leaves out data older than one year. It still does not include DMs or private channels.</p></div>
+          </details>
+          <details>
+            <summary>Does an export upload my messages?</summary>
+            <div class="answer"><p>Channel Export runs in your browser. We have no server that receives your messages. Slack's official export is a ZIP downloaded by the owner or admin who started it. The Slack export viewer reads that ZIP in your browser and does not upload it.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-guides" aria-labelledby="guides-title">
+      <div class="wrap">
+        <h2 id="guides-title">More guides</h2>
+        <ul class="guide-links">
+          <li><a href="/export-slack-without-admin">How to export Slack messages without admin access</a></li>
+          <li><a href="/export-slack-dms">How to export Slack DMs and group DMs</a></li>
+          <li><a href="/export-slack-thread">How to export a Slack thread</a></li>
+          <li><a href="/export-slack-channel-to-csv">How to export a Slack channel to CSV</a></li>
+          <li><a href="/export-slack-to-pdf">How to export a Slack conversation to PDF</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="closing" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <h2 id="install-title">Save the messages you can still see.</h2>
+        <a class="button button-manila" href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Add to Chrome, free</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Not affiliated with or endorsed by Slack Technologies, LLC. Slack is a trademark of Slack Technologies, LLC.</p>
+      <div class="footer-links">
+        <nav class="footer-guides" aria-label="Guides">
+          <span class="footer-label">Guides</span>
+          <a href="/export-slack-without-admin">Export without admin</a>
+          <a href="/export-slack-dms">Export Slack DMs</a>
+          <a href="/export-slack-thread">Export a thread</a>
+          <a href="/export-slack-channel-to-csv">Export to CSV</a>
+          <a href="/export-slack-to-pdf">Export to PDF</a>
+          <a href="/save-slack-messages-free-plan" aria-current="page">Save free-plan messages</a>
+        </nav>
+        <nav class="footer-guides" aria-label="Tools">
+          <span class="footer-label">Tools</span>
+          <a href="/slack-export-viewer">Slack export viewer</a>
+        </nav>
+        <nav aria-label="Footer">
+          <a href="/privacy">Privacy policy</a>
+          <a href="https://chromewebstore.google.com/detail/channel-export-export-sla/dddkefnkidamdnikccdjfgmoeegpmkih" data-cws-link>Chrome Web Store</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script data-goatcounter="https://channelexport.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
