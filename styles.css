@@ -1033,6 +1033,14 @@ html:not(.js) .export-btn {
   margin-top: 0.875rem;
 }
 
+.guide-copy h2:not(:first-child) {
+  margin-top: 2.75rem;
+}
+
+.guide-copy h2 + .prose {
+  margin-top: 1.35rem;
+}
+
 .section-guides {
   padding-block: 0 clamp(3rem, 6vw, 4.5rem);
 }
